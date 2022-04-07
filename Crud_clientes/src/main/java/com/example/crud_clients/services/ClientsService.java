@@ -52,7 +52,7 @@ public class ClientsService {
             entity = clientsRepository.save(entity);
             return new ClientsDTO(entity);
         } catch (EntityNotFoundException e) {
-            throw new ResourceNotFoundException("Id not found" + id);
+            throw new ResourceNotFoundException("Id not found " + id);
         }
     }
 
@@ -60,7 +60,7 @@ public class ClientsService {
         try {
             clientsRepository.deleteById(id);
         } catch (EmptyResultDataAccessException e) {
-            throw new ResourceNotFoundException("id not found" + id);
+            throw new ResourceNotFoundException("id not found " + id);
         } catch (DataIntegrityViolationException e) {
             throw new DataBaseException("Integrity violation");
         }
